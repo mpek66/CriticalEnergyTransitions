@@ -38,12 +38,12 @@ end
 % steady-states
 [~,xfirst] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, tend],x0(1));
 [~,xlast] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, tend],x0(end));
-[~,xunstable] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, tend],x0(end));
+% [~,xunstable] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, tend],x0(end));
 
 % Create and plot all periodic solutions
 [t1,x1] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, 1],xfirst(end));
 [t2,x2] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, 1],xlast(end));
-[t3,x3] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[0, 1],x0_unstable);
+[t3,x3] = ode45(@(t,x) h+r*x-x^3+sin(w*t),[1, 0],x0_unstable);
 
 figure, hold on
 plot(t1,x1)

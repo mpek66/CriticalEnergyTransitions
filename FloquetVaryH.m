@@ -1,5 +1,5 @@
 function FloquetVaryH
-    clf
+%     clf
     r=10;
     w=100;
     n = 1000; %number of trials
