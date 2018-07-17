@@ -1,5 +1,4 @@
 function FloquetVaryH
-    clf
     r=10;
     w=100;
     n = 1000; %number of trials
@@ -8,7 +7,7 @@ function FloquetVaryH
     x3 = linspace(0,100,n);
     hvals = linspace(-25,25,n);
     ix = 1;
-    for h = hvals  
+    for h = hvals
         %getFMS of r, h, w
         v = getFMS(r,h,w);
         x1(ix) = v(1);
