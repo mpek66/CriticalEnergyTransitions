@@ -23,10 +23,14 @@ function Coupled
                             getAlbedo(E(4), x4)*getSeasonal(x4, t)-(A+B*E(4))+C*(mean(E)-E(4))+Fb+F];
     [t E] = ode45(G, [0 6*pi], [1, 1, 1, 1]);
     plot(t, E(:,1), 'r', t, E(:,2), 'g', t, E(:,3), 'b', t, E(:,4), 'y'); hold on;
+    x=1;
     t = linspace(0, 6*pi, 100);
-    x = .66;
-    G = ((a0-a2*x*x)*(S0-S2*x*x)+Fb+F-A)/B+(a0-a2*x*x)*(S1*x)*(w*sin(w*t+pi)+B*cos(w*t+pi))/(w*w+B*B);
-    plot(t, G); hold on;
+    E = linspace(0,1,100);
+    for ix=linspace(2,length(t),length(t)-1)
+        ix
+        E(ix) = (getAlbedo(E(ix-1),x)*(S0-S2*x*x)+Fb+F-A)/B+(a0-a2*x*x)*(S1*x)*(w*sin(w*t(ix)+pi)+B*cos(w*t(ix)+pi))/(w*w+B*B);
+    end
+    plot(t,E); hold on;
 end
 
 function albedo=getAlbedo(E, x)
