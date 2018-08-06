@@ -1,4 +1,8 @@
 function FloquetVaryH
+<<<<<<< HEAD
+=======
+%     clf
+>>>>>>> 87a0d0f3cd77acf9aaaff1bba43294e0d6419b5d
     r=10;
     w=100;
     n = 1000; %number of trials
